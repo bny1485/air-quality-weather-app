@@ -1,11 +1,47 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css'%}">
     <title>home page</title>
 </head>
+
 <body>
-    <h1>this is a home page!</h1>
+    <nav class="nav flex-column">
+        <img style="height: 50px;padding-left: 200px;padding-top: 5px;" src="{% static 'zinet.png' %}"
+            alt="www.zi-net.com" />
+        <form method="POST">
+            {% csrf_token %}
+            <div id="search-box">
+                <div class="input-field" >
+                    {{ form.name }}
+                </div>
+                <div class="control">
+                    <button type="submit">add city</button>
+                </div>
+            </div>
+        </form>
+    </nav>
+    <main>
+        {% if error_message %}
+            <div class="container error_message">{{ error_message }}</div>
+        {% endif %}
+        {% if success_message %}
+            <div class="container success_message">{{ success_message }}</div>
+        {% endif %}
+        {% for item in full_data %}
+        <div class="container">
+            <img src="https://openweathermap.org/img/w/{{ item.icon }}.png" alt="image alt {{ item.icon }}">
+            <p>name of city: {{ item.city_name }}</p>
+            <p>temprature: {{ item.tmep }}</p>
+            <p>weather: {{ item.weather }}</p>
+            <p>description: {{ item.description }}</p>
+        </div>
+        {% endfor %}
+    </main>
 </body>
 </html>

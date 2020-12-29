@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+ 
+body {
+    background-color: #e8eaed;
+}
+
+.flex-column {
+    background-color: #212121;
+    height: 60px;
+}
+
+.flex-column #search-box {
+    position: absolute;
+    right: 200px;
+    top: 10px;
+    display: inline;
+}
+
+.nav-item {
+    display: inline;
+}
+
+main {
+    max-width: 960px;
+    font-size: 14pt;
+    margin: 0 auto;
+}
+
+
+.container {
+    border: 1px solid #807e7e;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: white;
+}
+
+.input-field {
+    display: inline;
+}
+
+.control {
+    display: inline;
+}
+
+.success_message {
+    background-color: green;
+}
+.error_message {
+    background-color: red;
+}
